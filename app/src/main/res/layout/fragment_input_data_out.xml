@@ -10,76 +10,41 @@
     tools:context=".view.InputDataFragment">
 
     <EditText
-        android:id="@+id/etNamaMakanan"
+        android:id="@+id/etNamaWorkout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/nama_makanan"
+        android:hint="@string/namaworkout"
         android:layout_marginTop="@dimen/margin_25"
         android:textColorHint="@color/white2"
         android:textColor="@color/white2"
         />
 
     <EditText
-        android:id="@+id/etWaktuMakan"
+        android:id="@+id/etWaktuWorkoutDimulai"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/waktu_makan"
+        android:hint="@string/waktu_workout"
+        android:layout_marginTop="@dimen/margin_10"
+        android:textColorHint="@color/white2"
+        android:textColor="@color/white2"
+        />
+
+    <EditText
+        android:id="@+id/etDurasiWorkout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/durasi_workout"
         android:layout_marginTop="@dimen/margin_10"
         android:textColorHint="@color/white2"
         android:textColor="@color/white2"
         />
 
 
-
-    <TextView
-        android:id="@+id/tvTextJenisKaloriMasuk"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/jenis_kalori_masuk"
-        android:textColor="@color/white3"
-        android:textSize="20sp"
-        android:layout_marginTop="@dimen/margin_20"
-        />
-
-    <RadioGroup
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
-
-        <RadioButton
-            android:id="@+id/rbSarapan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/sarapan"
-            android:textSize="16sp"
-            android:textColor="@color/white2"
-            />
-        <RadioButton
-            android:id="@+id/rbMakanSiang"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_10"
-            android:text="@string/makan_siang"
-            android:textSize="16sp"
-            android:textColor="@color/white2"
-            />
-        <RadioButton
-            android:id="@+id/rbMakanMalam"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_10"
-            android:text="@string/makan_malam"
-            android:textSize="16sp"
-            android:textColor="@color/white2"
-            />
-    </RadioGroup>
-
     <EditText
-        android:id="@+id/etJumlahKaloriMasuk"
+        android:id="@+id/etJumlahKaloriTerbakar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/jumlah_kalori_masuk"
+        android:hint="@string/jumlah_kalori_terbakar_kal"
         android:layout_marginTop="@dimen/margin_10"
         android:textColorHint="@color/white2"
         android:textColor="@color/white2"
