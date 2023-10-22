@@ -34,4 +34,13 @@
     <string name="durasi_workout">Durasi Workout</string>
     <string name="simpan">Simpan</string>
     <string name="hari_ini">Hari Ini</string>
+    <string name="sisa_kalori">Sisa Kalori</string>
+    <string name="_1908">1908</string>
+    <string name="konsumsi_kalori">Konsumsi Kalori</string>
+    <string name="_360">360</string>
+    <string name="kalori">Kalori</string>
+    <string name="_1_item">1 item</string>
+    <string name="makanan_sarapan">Makanan Sarapan</string>
+    <string name="kalori_terbakar">Kalori Terbakar</string>
+    <string name="last_item">Last Item</string>
 </resources>
