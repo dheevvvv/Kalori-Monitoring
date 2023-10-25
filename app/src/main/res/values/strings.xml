@@ -5,11 +5,11 @@
     <string name="get_started">Get Started</string>
     <string name="skip">SKIP</string>
     <string name="nama">Nama</string>
-    <string name="berat_badan_yang_diinginkan">Berat Badan Yang Diinginkan (Kg)</string>
+    <string name="berat_badan_yang_diinginkan">Berat Badan Yang Diinginkan</string>
     <string name="tujuan_diet">Tujuan Diet</string>
     <string name="tanggal_target_capaian">Tanggal Target Capaian</string>
     <string name="jumlah_target_kalori_harian">Jumlah Target Kalori Harian (Kal)</string>
-    <string name="berat_badan_saat_ini">Berat Badan Saat Ini (Kg)</string>
+    <string name="berat_badan_saat_ini">Berat Badan Saat Ini</string>
     <string name="tanggal">Tanggal</string>
     <string name="usia">Usia</string>
     <string name="berat">Berat (Kg)</string>
