@@ -1,6 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/main_navigation">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/splashFragment">
 
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.dheevvvv.kalorimonitoring.view.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_splashFragment_to_viewPageFragment"
+            app:destination="@id/viewPageFragment" />
+        <action
+            android:id="@+id/action_splashFragment_to_welcomePageFragment"
+            app:destination="@id/welcomePageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/viewPageFragment"
+        android:name="com.dheevvvv.kalorimonitoring.view.ViewPageFragment"
+        android:label="fragment_view_page"
+        tools:layout="@layout/fragment_view_page" >
+        <action
+            android:id="@+id/action_viewPageFragment_to_getStartedFragment"
+            app:destination="@id/getStartedFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/welcomePageFragment"
+        android:name="com.dheevvvv.kalorimonitoring.view.WelcomePageFragment"
+        android:label="fragment_welcome_page"
+        tools:layout="@layout/fragment_welcome_page" >
+        <action
+            android:id="@+id/action_welcomePageFragment_to_getStartedFragment"
+            app:destination="@id/getStartedFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/getStartedFragment"
+        android:name="com.dheevvvv.kalorimonitoring.view.GetStartedFragment"
+        android:label="fragment_get_started"
+        tools:layout="@layout/fragment_get_started" >
+        <action
+            android:id="@+id/action_getStartedFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.dheevvvv.kalorimonitoring.view.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_inputDataOutFragment"
+            app:destination="@id/inputDataOutFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_inputDataFragment"
+            app:destination="@id/inputDataFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/inputDataFragment"
+        android:name="com.dheevvvv.kalorimonitoring.view.InputDataFragment"
+        android:label="fragment_input_data_out"
+        tools:layout="@layout/fragment_input_data_out" >
+        <action
+            android:id="@+id/action_inputDataFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/inputDataOutFragment"
+        android:name="com.dheevvvv.kalorimonitoring.view.InputDataOutFragment"
+        android:label="fragment_input_data_out"
+        tools:layout="@layout/fragment_input_data_out" >
+        <action
+            android:id="@+id/action_inputDataOutFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
 </navigation>

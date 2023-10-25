@@ -7,7 +7,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/darkblue"
     android:padding="@dimen/margin_20"
-    tools:context=".view.InputDataFragment">
+    tools:context=".view.InputDataOutFragment">
 
     <EditText
         android:id="@+id/etNamaWorkout"

@@ -43,4 +43,13 @@
     <string name="makanan_sarapan">Makanan Sarapan</string>
     <string name="kalori_terbakar">Kalori Terbakar</string>
     <string name="last_item">Last Item</string>
+
+    <string name="intro_title_1">Selamat Datang di Monitoring kalori!</string>
+    <string name="intro_title_2">Sarapan</string>
+    <string name="intro_title_3">Makan Malam</string>
+    <string name="intro_title_4">Workout</string>
+    <string name="intro_sub_title_1">Di aplikasi ini kamu bisa memonitor berapa asupan kalori yang telah masuk dan keluar, membuatmu dapat mencapai goals diet kamu!</string>
+    <string name="intro_sub_title_2">Tambah asupan kalori saat kamu Sarapan</string>
+    <string name="intro_sub_title_3">Tambah asupan kalori saat kamu makan Malam</string>
+    <string name="intro_sub_title_4">Tambah kalori yang terbakar saat kamu Latihan</string>
 </resources>
