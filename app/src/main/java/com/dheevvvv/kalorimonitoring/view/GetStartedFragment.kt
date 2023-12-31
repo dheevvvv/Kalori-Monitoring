@@ -108,6 +108,14 @@ class GetStartedFragment : Fragment() {
 
         val inputKaloriHarian = binding.etJumlahTargetKaloriHarian.text.toString()
         getStartedViewModel._jumlahTargetkaloriHarian.postValue(inputKaloriHarian)
+        val beratBadanSaatIni = binding.etBeratBadan.text.toString()
+        val spBeratBadanSaatIni = binding.spSatuanBeratbadanSaatIni.selectedItem.toString()
+        val beratBadanYangDiinginkan = binding.etBeratBadanDiinginkan.text.toString()
+        val spBeratBadanYangDiinginkan = binding.spSatuanBeratBadanDiinginkan.selectedItem.toString()
+        getStartedViewModel._beratBadanSaatIni.postValue(beratBadanSaatIni + " " + spBeratBadanSaatIni)
+        getStartedViewModel._beratBadanYangDiinginkan.postValue(beratBadanYangDiinginkan + " " + spBeratBadanYangDiinginkan)
+        val tujuanDiet = binding.spTujuanDiet.selectedItem.toString()
+        getStartedViewModel._tujuanDiet.postValue(tujuanDiet)
 
         binding.btnSimpanGetStarted.setOnClickListener {
             if (

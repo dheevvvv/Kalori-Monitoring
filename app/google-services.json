@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "356972037646",
+    "project_id": "finalproject-papb1-kaloritrack",
+    "storage_bucket": "finalproject-papb1-kaloritrack.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:356972037646:android:504984fbf3ad17e9ca1e5f",
+        "android_client_info": {
+          "package_name": "com.dheevvvv.kalorimonitoring"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4NESuEWiTOCs7ZV_yOkTZK8iEKruuiD4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

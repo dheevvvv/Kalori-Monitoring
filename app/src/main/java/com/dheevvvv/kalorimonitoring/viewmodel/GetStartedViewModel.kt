@@ -22,4 +22,6 @@ class GetStartedViewModel():ViewModel() {
 
     internal val _jumlahTargetkaloriHarian = MutableLiveData<String>()
     val jumlahTargetkaloriHarian:LiveData<String> get() =_jumlahTargetkaloriHarian
+
+
 }
