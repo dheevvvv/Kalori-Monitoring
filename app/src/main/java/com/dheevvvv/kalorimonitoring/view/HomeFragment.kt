@@ -1,5 +1,6 @@
 package com.dheevvvv.kalorimonitoring.view
 
+import android.annotation.SuppressLint
 import android.content.ContentValues
 import android.os.Bundle
 import android.util.Log
@@ -69,15 +70,32 @@ class HomeFragment : Fragment() {
             }.toString()
         }
 
-        userViewModel.fetchUserByEmail(email)
-        userViewModel.user.observe(viewLifecycleOwner, Observer {
-            if (it!=null){
-                targetKalori = it.jumlahTargetKalori
-            }
-        })
+       fetchUserByEmail(email)
 
 
         binding.tvKaloriTarget.setText(targetKalori).toString()
+    }
+
+    fun fetchUserByEmail(email: String) {
+        val db = FirebaseFirestore.getInstance()
+        val userCollection = db.collection("user")
+
+
+        userCollection.whereEqualTo("email", email)
+            .get()
+            .addOnSuccessListener { documents ->
+                for (document in documents) {
+                    // Data dari dokumen
+                    targetKalori = document.getString("jumlahTargetKalori").toString()
+
+                }
+            }
+            .addOnFailureListener { e ->
+                //
+                //
+            }
+
+
     }
 
 

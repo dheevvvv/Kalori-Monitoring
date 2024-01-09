@@ -22,24 +22,5 @@ class UserViewModel():ViewModel() {
     private val _user = MutableLiveData<UserData>()
     val user: LiveData<UserData> get() = _user
 
-    @SuppressLint("NullSafeMutableLiveData")
-    fun fetchUserByEmail(email: String) {
-        viewModelScope.launch {
-            try {
-                val querySnapshot = usersCollection.whereEqualTo("email", email).get().await()
-
-                if (!querySnapshot.isEmpty) {
-                    val user = querySnapshot.documents[0].toObject(UserData::class.java)
-                    _user.value = user!!
-                } else {
-                    // Dokumen tidak ditemukan untuk email yang diberikan
-                    _user.value = null
-                }
-            } catch (e: Exception) {
-                // Handle errors
-            }
-        }
-    }
-
 
 }

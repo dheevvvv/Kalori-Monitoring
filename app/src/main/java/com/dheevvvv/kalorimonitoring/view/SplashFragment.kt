@@ -50,7 +50,7 @@ class SplashFragment : Fragment() {
 
                 }else{
                     userManager.clearData()
-                    findNavController().navigate(R.id.action_splashFragment_to_loginFragment)
+                    findNavController().navigate(R.id.action_splashFragment_to_welcomePageFragment)
                 }
             }
         },2500)

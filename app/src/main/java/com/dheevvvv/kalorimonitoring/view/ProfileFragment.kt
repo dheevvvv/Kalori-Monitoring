@@ -73,14 +73,8 @@ class ProfileFragment : Fragment() {
             }.toString()
         }
 
-        userViewModel.fetchUserByEmail(email)
-        userViewModel.user.observe(viewLifecycleOwner, Observer {
-            if (it!=null){
-                nama = it.nama
-                tujuan = it.tujuanDiet
-                beratBadan = it.beratBadanSaatIni
-            }
-        })
+
+        fetchUserByEmail(email)
 
         binding.tvNama.setText(nama)
         binding.tvBeratBadan.setText(beratBadan)
@@ -95,6 +89,31 @@ class ProfileFragment : Fragment() {
             findNavController().navigate(R.id.action_profileFragment_to_loginFragment)
             Toast.makeText(context, "Logging Out", Toast.LENGTH_SHORT).show()
         }
+    }
+
+    fun fetchUserByEmail(email: String) {
+        val db = FirebaseFirestore.getInstance()
+        val usersCollection = db.collection("users")
+
+        val targetEmail = email
+
+        val query = usersCollection.whereEqualTo("email", targetEmail)
+
+        query.get()
+            .addOnSuccessListener { documents ->
+                for (document in documents) {
+                    // Data dari dokumen
+                    nama = document.getString("nama").toString()
+                    beratBadan = document.getString("beratBadanSaatIni").toString()
+                    tujuan = document.getString("tujuanDiet").toString()
+
+                }
+            }
+            .addOnFailureListener { e ->
+                //
+                //
+            }
+
     }
 
 
