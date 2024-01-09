@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/margin_20"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".view.FormAdminTambahMakananFragment">
+
+
+    <EditText
+        android:id="@+id/namaMakanan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_20"
+        android:hint="@string/nama_makanan"
+        />
+
+    <EditText
+        android:id="@+id/takaranSaji"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_20"
+        android:hint="@string/takaran_saji"
+        />
+    <EditText
+        android:id="@+id/jumlahKalori"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_20"
+        android:hint="@string/jumlah_kalori"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnTambahMakanan"
+        android:backgroundTint="@color/medium_siate_blue"
+        app:cornerRadius="@dimen/margin_10"
+        android:layout_marginTop="@dimen/margin_40"
+        android:text="@string/tambah_makanan"
+        />
+
+</LinearLayout>
