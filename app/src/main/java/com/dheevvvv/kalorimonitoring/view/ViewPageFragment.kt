@@ -36,7 +36,7 @@ class ViewPageFragment : Fragment() {
         }
 
         binding.skipText.setOnClickListener {
-            findNavController().navigate(R.id.action_welcomePageFragment_to_getStartedFragment)
+            findNavController().navigate(R.id.action_welcomePageFragment_to_loginFragment)
         }
     }
 

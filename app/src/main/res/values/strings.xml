@@ -52,4 +52,13 @@
     <string name="intro_sub_title_2">Tambah asupan kalori saat kamu Sarapan</string>
     <string name="intro_sub_title_3">Tambah asupan kalori saat kamu makan Malam</string>
     <string name="intro_sub_title_4">Tambah kalori yang terbakar saat kamu Latihan</string>
+    <string name="masuk">Masuk</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="daftar">Daftar</string>
+    <string name="username">username</string>
+    <string name="kembali">Kembali</string>
+    <string name="atau">Atau</string>
+    <string name="lanjutkan">Lanjutkan</string>
+    <string name="confirm_password">Confirm Password</string>
 </resources>
