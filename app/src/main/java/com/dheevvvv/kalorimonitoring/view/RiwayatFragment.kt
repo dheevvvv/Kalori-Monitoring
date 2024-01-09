@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -61,30 +62,36 @@ class RiwayatFragment : Fragment() {
                 binding.rvRiwayatMakanan.adapter = adapter
 
                 adapter.onEditClick = {item->
-                    val namaMakanan = item.namaMakanan
-                    val bundle = Bundle()
-                    bundle.putString("namaMakanan", namaMakanan)
-                    bundle.putString("jumlahKalori", item.jumlahKalori)
-                    bundle.putString("takaranSaji", item.takaranSaji)
+                    val bundle = Bundle().apply {
+                        putSerializable("makanan", item)
+                    }
                     findNavController().navigate(R.id.action_riwayatFragment_to_formUpdateMakananFragment, bundle)
                 }
-                adapter.onDeleteClick = {item->
-                    AlertDialog.Builder(requireContext())
-                        .setTitle("Konfirmasi Hapus")
-                        .setMessage("Apakah Anda yakin ingin menghapus ${item.namaMakanan}?")
-                        .setPositiveButton("Ya") { _, _ ->
-                            makananDikonsumsiViewModel.deleteMakananDikonsumsi(item)
-
+                adapter.onDeleteClick = { item ->
+                    val alertDialog = android.app.AlertDialog.Builder(requireContext())
+                    alertDialog.apply {
+                        setTitle("Konfirmasi")
+                        setMessage("Apakah Yakin ingin menghapus Makanan : ${item.namaMakanan} ?")
+                        setNegativeButton("Batal") { dialogInterface, i ->
+                            dialogInterface.dismiss()
                         }
-                        .setNegativeButton("Tidak", null)
-                        .show()
-                }
-            }
-        })
+                        setPositiveButton("Hapus") { dialogInterface, i ->
+                            makananDikonsumsiViewModel.deleteMakananDikonsumsi(item)
+                            dialogInterface.dismiss()
+                            Toast.makeText(
+                                requireContext(),
+                                "Berhasil menghapus Data ${item.namaMakanan}",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                            makananDikonsumsiViewModel.getMakananDikonsumsi()
+                        }
+                    }
+                    alertDialog.show()
 
+            }   }
+        })
 
     }
 
+    }
 
-
-}

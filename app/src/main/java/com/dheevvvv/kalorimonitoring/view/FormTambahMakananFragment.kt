@@ -71,20 +71,26 @@ class FormTambahMakananFragment : Fragment() {
             }
         }
 
-        val data = MakananDikonsumsiData(
-            namaMakanan = namaMakanan.toString(),
-            gambarPath = "null",
-            takaranSaji = takaranSaji.toString(),
-            jumlahKalori = jumlahKalori.toString(),
-            jamMakan = spJamMakan
-
-        )
 
         binding.btnTambahMakanan.setOnClickListener {
-            makananDikonsumsiViewModel.insertMakananDikonsumsi(data)
+            saveAdd()
             Toast.makeText(context, "Data Makanan Berhasil Ditambahkan", Toast.LENGTH_SHORT).show()
             findNavController().navigate(R.id.action_formTambahMakananFragment_to_riwayatFragment)
         }
+    }
+
+    fun saveAdd(){
+        val etNamaMakanan = binding.namaMakanan.text.toString()
+        val etTakaranSaji = binding.takaranSaji.text.toString()
+        val etJumlahKalori = binding.jumlahKalori.text.toString()
+        makananDikonsumsiViewModel.insertMakananDikonsumsi(MakananDikonsumsiData(
+            namaMakanan = etNamaMakanan,
+            gambarPath = "null",
+            takaranSaji = etTakaranSaji,
+            jumlahKalori = etJumlahKalori,
+            jamMakan = spJamMakan
+        ))
+
     }
 
 

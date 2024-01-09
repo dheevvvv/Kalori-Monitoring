@@ -3,6 +3,7 @@ package com.dheevvvv.kalorimonitoring.room_database
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.io.Serializable
 
 
 @Entity(tableName = "makanan_dikonsumsi_table")
@@ -19,5 +20,5 @@ data class MakananDikonsumsiData(
     var jamMakan:String,
     @ColumnInfo(name = "takaranSaji")
     var takaranSaji:String
-) {
+) : Serializable {
 }

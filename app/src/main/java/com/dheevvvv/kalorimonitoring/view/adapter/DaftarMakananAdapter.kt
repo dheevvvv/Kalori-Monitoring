@@ -27,6 +27,7 @@ class DaftarMakananAdapter(private val listDaftarMakanan: List<DaftarMakanan>): 
         holder.binding.tvNamaMakanan.text = list.namaMakanan
         holder.binding.tvJumlahKalori.text = list.jumlahKalori
         holder.binding.tvJumlahKalori.text = list.jumlahKalori
+        holder.binding.tvJamMakan.text = list.jamMakan
         Glide.with(holder.itemView).load({{list.gambarPath}}).into(holder.binding.ivGambar)
         holder.binding.onClickDetail.setOnClickListener {
             onClick?.invoke(list)

@@ -32,6 +32,7 @@ class MakananDikonsumsiAdapter(private val listMakananDikonsumsi: List<MakananDi
         holder.binding.tvNamaMakanan.text = list.namaMakanan
         holder.binding.tvJumlahKalori.text = list.jumlahKalori
         holder.binding.tvJumlahKalori.text = list.jumlahKalori
+        holder.binding.tvJamMakan.text = list.jamMakan
         holder.binding.onClickDetail.setOnClickListener {
             onDetailClick?.invoke(list)
         }

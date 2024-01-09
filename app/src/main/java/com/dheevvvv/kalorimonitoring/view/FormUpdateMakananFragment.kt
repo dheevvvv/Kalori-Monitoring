@@ -31,15 +31,33 @@ class FormUpdateMakananFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentFormUpdateMakananBinding.inflate(layoutInflater, container, false)
         return binding.root
+
+    }
+
+    companion object {
+        const val ARG_DATA = "makanan"
+
+        fun newInstance(makananDikonsumsiData: MakananDikonsumsiData): FormUpdateMakananFragment {
+            val args = Bundle().apply {
+                putSerializable(ARG_DATA, makananDikonsumsiData)
+            }
+            val fragment = FormUpdateMakananFragment()
+            fragment.arguments = args
+            return fragment
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         userManager = UserManager.getInstance(requireContext())
 
-        val namaMakanan = arguments?.getString("namaMakanan")
-        val takaranSaji = arguments?.getString("takaranSaji")
-        val jumlahKalori = arguments?.getString("jumlahKalori")
+
+
+        val arguments = arguments?.getSerializable(ARG_DATA) as MakananDikonsumsiData
+
+        val namaMakanan = arguments.namaMakanan
+        val takaranSaji = arguments.takaranSaji
+        val jumlahKalori = arguments.jumlahKalori
 
         binding.namaMakanan.setText(namaMakanan)
         binding.jumlahKalori.setText(jumlahKalori)
@@ -70,25 +88,33 @@ class FormUpdateMakananFragment : Fragment() {
             }
         }
 
+
+
+        binding.btnUpdateMakanan.setOnClickListener {
+            saveEdit()
+            Toast.makeText(context, "Data Makanan Berhasil Di Update", Toast.LENGTH_SHORT).show()
+            findNavController().navigate(R.id.action_formUpdateMakananFragment_to_riwayatFragment)
+
+        }
+    }
+
+    fun saveEdit(){
+        val arguments = arguments?.getSerializable(ARG_DATA) as MakananDikonsumsiData
+        val id = arguments.makananId
         val etNamaMakanan = binding.namaMakanan.text.toString()
         val etTakaranSaji = binding.takaranSaji.text.toString()
         val etJumlahKalori = binding.jumlahKalori.text.toString()
-
-        val data = MakananDikonsumsiData(
+        makananDikonsumsiViewModel.updateMakananDikonsumsi(MakananDikonsumsiData(
+            makananId = id,
             namaMakanan = etNamaMakanan,
             gambarPath = "null",
             takaranSaji = etTakaranSaji,
             jumlahKalori = etJumlahKalori,
             jamMakan = spJamMakan
 
-        )
-
-        binding.btnUpdateMakanan.setOnClickListener {
-            makananDikonsumsiViewModel.updateMakananDikonsumsi(data)
-            Toast.makeText(context, "Data Makanan Berhasil Di Update", Toast.LENGTH_SHORT).show()
-            findNavController().navigate(R.id.action_formUpdateMakananFragment_to_riwayatFragment)
-
-        }
+        ))
+        Toast.makeText(requireContext(), "save update berhasil", Toast.LENGTH_SHORT).show()
+        makananDikonsumsiViewModel.getMakananDikonsumsi()
     }
 
 

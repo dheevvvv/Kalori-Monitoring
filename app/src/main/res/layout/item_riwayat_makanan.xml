@@ -7,7 +7,7 @@
     android:layout_height="150dp"
     android:id="@+id/onClickDetail"
     app:cardCornerRadius="20dp"
-    app:cardBackgroundColor="#E4E4E4"
+    app:cardBackgroundColor="#FDF6F6"
     android:layout_marginTop="@dimen/margin_10"
     android:elevation="200dp">
 
