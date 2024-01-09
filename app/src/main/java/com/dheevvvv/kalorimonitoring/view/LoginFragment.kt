@@ -11,14 +11,18 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.dheevvvv.kalorimonitoring.R
 import com.dheevvvv.kalorimonitoring.databinding.FragmentLoginBinding
+import com.dheevvvv.kalorimonitoring.datastore_preferences.UserManager
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 
 class LoginFragment : Fragment() {
     private lateinit var binding: FragmentLoginBinding
     private lateinit var auth: FirebaseAuth
     private lateinit var firestore: FirebaseFirestore
+    private lateinit var userManager: UserManager
     
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,6 +46,7 @@ class LoginFragment : Fragment() {
         auth = FirebaseAuth.getInstance()
         firestore = FirebaseFirestore.getInstance()
 
+        userManager = UserManager.getInstance(requireContext())
 
 
         binding.btnLogin.setOnClickListener {
@@ -87,9 +92,15 @@ class LoginFragment : Fragment() {
                         // Login berhasil
                         when (role) {
                             "user" -> {
+                                GlobalScope.launch {
+                                    userManager.saveData(email, is_login_key = true, role = "user")
+                                }
                                 findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
                             }
                             "admin" -> {
+                                GlobalScope.launch {
+                                    userManager.saveData(email, is_login_key = true, role = "admin")
+                                }
                                 findNavController().navigate(R.id.action_loginFragment_to_adminHomeFragment)
                             }
                             else -> {

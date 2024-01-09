@@ -61,4 +61,13 @@
     <string name="atau">Atau</string>
     <string name="lanjutkan">Lanjutkan</string>
     <string name="confirm_password">Confirm Password</string>
+    <string name="beranda">Beranda</string>
+    <string name="riwayat">Riwayat</string>
+    <string name="profile">Profile</string>
+    <string name="_2000">2000</string>
+    <string name="target_kalori">Target Kalori</string>
+    <string name="_0">0</string>
+    <string name="tinggi_badan">Tinggi Badan</string>
+    <string name="berat_badan">Berat Badan</string>
+    <string name="keluar">Keluar</string>
 </resources>
