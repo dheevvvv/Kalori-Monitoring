@@ -12,16 +12,15 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.dheevvvv.kalorimonitoring.R
-import com.dheevvvv.kalorimonitoring.databinding.FragmentFormTambahMakananBinding
+import com.dheevvvv.kalorimonitoring.databinding.FragmentFormUpdateMakananBinding
 import com.dheevvvv.kalorimonitoring.datastore_preferences.UserManager
 import com.dheevvvv.kalorimonitoring.room_database.MakananDikonsumsiData
 import com.dheevvvv.kalorimonitoring.viewmodel.MakananDikonsumsiViewModel
 import kotlinx.coroutines.launch
 
-
-class FormTambahMakananFragment : Fragment() {
-    private lateinit var binding:FragmentFormTambahMakananBinding
-    private val makananDikonsumsiViewModel:MakananDikonsumsiViewModel by viewModels()
+class FormUpdateMakananFragment : Fragment() {
+    private lateinit var binding:FragmentFormUpdateMakananBinding
+    private val makananDikonsumsiViewModel: MakananDikonsumsiViewModel by viewModels()
     private lateinit var userManager: UserManager
     var email:String = ""
     var spJamMakan = ""
@@ -30,7 +29,7 @@ class FormTambahMakananFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding = FragmentFormTambahMakananBinding.inflate(layoutInflater, container, false)
+        binding = FragmentFormUpdateMakananBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
 
@@ -71,24 +70,26 @@ class FormTambahMakananFragment : Fragment() {
             }
         }
 
+        val etNamaMakanan = binding.namaMakanan.text.toString()
+        val etTakaranSaji = binding.takaranSaji.text.toString()
+        val etJumlahKalori = binding.jumlahKalori.text.toString()
+
         val data = MakananDikonsumsiData(
-            namaMakanan = namaMakanan.toString(),
+            namaMakanan = etNamaMakanan,
             gambarPath = "null",
-            takaranSaji = takaranSaji.toString(),
-            jumlahKalori = jumlahKalori.toString(),
+            takaranSaji = etTakaranSaji,
+            jumlahKalori = etJumlahKalori,
             jamMakan = spJamMakan
 
         )
 
-        binding.btnTambahMakanan.setOnClickListener {
-            makananDikonsumsiViewModel.insertMakananDikonsumsi(data)
-            Toast.makeText(context, "Data Makanan Berhasil Ditambahkan", Toast.LENGTH_SHORT).show()
-            findNavController().navigate(R.id.action_formTambahMakananFragment_to_riwayatFragment)
+        binding.btnUpdateMakanan.setOnClickListener {
+            makananDikonsumsiViewModel.updateMakananDikonsumsi(data)
+            Toast.makeText(context, "Data Makanan Berhasil Di Update", Toast.LENGTH_SHORT).show()
+            findNavController().navigate(R.id.action_formUpdateMakananFragment_to_riwayatFragment)
+
         }
     }
-
-
-
 
 
 }

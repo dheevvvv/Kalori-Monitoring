@@ -45,6 +45,10 @@ class TambahMakananFragment : Fragment() {
                 findNavController().navigate(R.id.action_tambahMakananFragment_to_formTambahMakananFragment, bundle)
             }
         })
+
+        binding.btnTambahCustom.setOnClickListener {
+            findNavController().navigate(R.id.action_tambahMakananFragment_to_formTambahMakananFragment)
+        }
     }
 
 

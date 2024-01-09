@@ -8,8 +8,12 @@ import com.dheevvvv.kalorimonitoring.databinding.ItemDaftarMakananBinding
 import com.dheevvvv.kalorimonitoring.databinding.ItemRiwayatMakananBinding
 import com.dheevvvv.kalorimonitoring.room_database.MakananDikonsumsiData
 
+
+
 class MakananDikonsumsiAdapter(private val listMakananDikonsumsi: List<MakananDikonsumsiData>):RecyclerView.Adapter<MakananDikonsumsiAdapter.ViewHolder>() {
-    var onClick: ((MakananDikonsumsiData)->Unit)? = null
+    var onDetailClick: ((MakananDikonsumsiData) -> Unit)? = null
+    var onEditClick: ((MakananDikonsumsiData) -> Unit)? = null
+    var onDeleteClick: ((MakananDikonsumsiData) -> Unit)? = null
     class ViewHolder(var binding: ItemRiwayatMakananBinding): RecyclerView.ViewHolder(binding.root) {
 
     }
@@ -29,7 +33,13 @@ class MakananDikonsumsiAdapter(private val listMakananDikonsumsi: List<MakananDi
         holder.binding.tvJumlahKalori.text = list.jumlahKalori
         holder.binding.tvJumlahKalori.text = list.jumlahKalori
         holder.binding.onClickDetail.setOnClickListener {
-            onClick?.invoke(list)
+            onDetailClick?.invoke(list)
+        }
+        holder.binding.ivEdit.setOnClickListener {
+            onEditClick?.invoke(list)
+        }
+        holder.binding.ivDelete.setOnClickListener {
+            onDeleteClick?.invoke(list)
         }
     }
 

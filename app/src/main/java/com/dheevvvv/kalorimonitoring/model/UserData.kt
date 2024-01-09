@@ -2,6 +2,7 @@ package com.dheevvvv.kalorimonitoring.model
 
 data class UserData(
     val nama: String = "",
+    val email: String="",
     val beratBadanSaatIni: String = "",
     val beratBadanTarget: String = "",
     val tujuanDiet: String = "",

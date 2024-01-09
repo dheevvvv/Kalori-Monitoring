@@ -1,5 +1,6 @@
 package com.dheevvvv.kalorimonitoring.view
 
+import android.content.ContentValues
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -17,6 +18,7 @@ import com.dheevvvv.kalorimonitoring.databinding.FragmentProfileBinding
 import com.dheevvvv.kalorimonitoring.datastore_preferences.UserManager
 import com.dheevvvv.kalorimonitoring.model.UserData
 import com.dheevvvv.kalorimonitoring.viewmodel.UserViewModel
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.first
@@ -71,8 +73,15 @@ class ProfileFragment : Fragment() {
             }.toString()
         }
 
+        userViewModel.fetchUserByEmail(email)
+        userViewModel.user.observe(viewLifecycleOwner, Observer {
+            if (it!=null){
+                nama = it.nama
+                tujuan = it.tujuanDiet
+                beratBadan = it.beratBadanSaatIni
+            }
+        })
 
-        getDataFromFirestore(email)
         binding.tvNama.setText(nama)
         binding.tvBeratBadan.setText(beratBadan)
         binding.tvTujuan.setText(tujuan)
@@ -88,20 +97,7 @@ class ProfileFragment : Fragment() {
         }
     }
 
-    private fun getDataFromFirestore(email: String) {
 
-        lifecycleScope.launch {
-            val userData: UserData? = userViewModel.getUserByEmail(email)
 
-            if (userData != null) {
-                nama = userData.nama
-                beratBadan = userData.beratBadanSaatIni.toString()
-                tujuan = userData.tujuanDiet.toString()
-
-            } else {
-                Log.e("FirestoreData", "Data not found for email: $email")
-            }
-        }
-    }
 
 }

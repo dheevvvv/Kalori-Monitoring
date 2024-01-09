@@ -143,6 +143,9 @@
         <action
             android:id="@+id/action_riwayatFragment_to_tambahMakananFragment"
             app:destination="@id/tambahMakananFragment" />
+        <action
+            android:id="@+id/action_riwayatFragment_to_formUpdateMakananFragment"
+            app:destination="@id/formUpdateMakananFragment" />
     </fragment>
     <fragment
         android:id="@+id/tambahMakananFragment"
@@ -160,6 +163,15 @@
         tools:layout="@layout/fragment_form_tambah_makanan" >
         <action
             android:id="@+id/action_formTambahMakananFragment_to_riwayatFragment"
+            app:destination="@id/riwayatFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/formUpdateMakananFragment"
+        android:name="com.dheevvvv.kalorimonitoring.view.FormUpdateMakananFragment"
+        android:label="fragment_form_update_makanan"
+        tools:layout="@layout/fragment_form_update_makanan" >
+        <action
+            android:id="@+id/action_formUpdateMakananFragment_to_riwayatFragment"
             app:destination="@id/riwayatFragment" />
     </fragment>
 </navigation>

@@ -18,25 +18,30 @@ class MakananDikonsumsiViewModel(application: Application):AndroidViewModel(appl
     val makananDikonsumsi : LiveData<MakananDikonsumsiData> get() = _makananDikonsumsi
 
     val database = KaloriDatabase.getInstance(getApplication())
-    val makananDikonsumsiDAO = database?.makananDikonsumsiDao()
+    val makananDikonsumsiDAO = database!!.makananDikonsumsiDao()
 
 
     fun insertMakananDikonsumsi(makananDikonsumsiData: MakananDikonsumsiData){
-        GlobalScope.async {
-            makananDikonsumsiDAO?.insert(makananDikonsumsiData)
+        viewModelScope.launch {
+            makananDikonsumsiDAO.insert(makananDikonsumsiData)
         }
     }
 
-    fun deleteMakananDikonsumsi(makananId: Int, email: String) {
-        GlobalScope.async {
-            makananDikonsumsiDAO?.deleteMakananDikonsumsiByIdAndUser(makananId, email)
+    fun updateMakananDikonsumsi(makananDikonsumsiData: MakananDikonsumsiData){
+        viewModelScope.launch {
+            makananDikonsumsiDAO.updateMakananDikonsumsi(makananDikonsumsiData)
         }
     }
 
+    fun deleteMakananDikonsumsi(makananDikonsumsiData: MakananDikonsumsiData) {
+        viewModelScope.launch {
+            makananDikonsumsiDAO.delete(makananDikonsumsiData)
+        }
+    }
 
-    fun getMakananDikonsumsi(email: String){
-        GlobalScope.launch {
-            val listMakananDikonsumsi = makananDikonsumsiDAO?.getMakananDikonsumsiByUser(email)
+    fun getMakananDikonsumsi(){
+        viewModelScope.launch {
+            val listMakananDikonsumsi = makananDikonsumsiDAO?.getAllDataMakananDikonsumsi()
             _listMakananDikonsumsi.postValue(listMakananDikonsumsi!!)
         }
     }

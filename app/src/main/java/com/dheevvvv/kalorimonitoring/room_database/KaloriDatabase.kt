@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import kotlin.coroutines.CoroutineContext
 
 
-@Database(entities = [MakananDikonsumsiData::class], version = 1)
+@Database(entities = [MakananDikonsumsiData::class], version = 2)
 abstract class KaloriDatabase:RoomDatabase() {
 
     abstract fun makananDikonsumsiDao(): MakananDikonsumsiDAO

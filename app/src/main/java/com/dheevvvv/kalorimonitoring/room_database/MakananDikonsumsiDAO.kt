@@ -6,20 +6,16 @@ import androidx.room.*
 @Dao
 interface MakananDikonsumsiDAO {
     @Insert
-    fun insert(makananDikonsumsiData: MakananDikonsumsiData)
+    suspend fun insert(makananDikonsumsiData: MakananDikonsumsiData)
 
-    @Query("SELECT * FROM makanan_dikonsumsi_table WHERE email = :email")
-    fun getMakananDikonsumsiByUser(email:String): List<MakananDikonsumsiData>
-
-
-    @Query("DELETE FROM makanan_dikonsumsi_table WHERE makananId = :makananId AND email = :email")
-    fun deleteMakananDikonsumsiByIdAndUser(makananId: Int, email: String)
+    @Query("SELECT * FROM makanan_dikonsumsi_table")
+    suspend fun getAllDataMakananDikonsumsi() : List<MakananDikonsumsiData>
 
     @Update
-    fun updateMakananDikonsumsi(makananDikonsumsiData: MakananDikonsumsiData)
+    suspend fun updateMakananDikonsumsi(makananDikonsumsiData: MakananDikonsumsiData)
 
     @Delete
-    fun delete(makananDikonsumsiData: MakananDikonsumsiData)
+    suspend fun delete(makananDikonsumsiData: MakananDikonsumsiData)
 
 
 }

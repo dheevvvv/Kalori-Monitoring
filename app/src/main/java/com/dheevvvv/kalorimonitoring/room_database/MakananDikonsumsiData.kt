@@ -9,8 +9,6 @@ import androidx.room.PrimaryKey
 data class MakananDikonsumsiData(
     @PrimaryKey(autoGenerate = true)
     val makananId: Int = 0,
-    @ColumnInfo(name = "email")
-    val email: String,
     @ColumnInfo(name = "namaMakanan")
     val namaMakanan:String,
     @ColumnInfo(name = "gambarPath")

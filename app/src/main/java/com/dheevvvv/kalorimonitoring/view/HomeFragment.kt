@@ -1,6 +1,8 @@
 package com.dheevvvv.kalorimonitoring.view
 
+import android.content.ContentValues
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -16,6 +18,7 @@ import com.dheevvvv.kalorimonitoring.databinding.FragmentHomeBinding
 import com.dheevvvv.kalorimonitoring.datastore_preferences.UserManager
 import com.dheevvvv.kalorimonitoring.model.UserData
 import com.dheevvvv.kalorimonitoring.viewmodel.UserViewModel
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
@@ -66,22 +69,18 @@ class HomeFragment : Fragment() {
             }.toString()
         }
 
-        getDataFromFirestore(email)
-        binding.tvKaloriTarget.setText(targetKalori)
-    }
-
-    private fun getDataFromFirestore(email: String) {
-
-        lifecycleScope.launch {
-            val userData: UserData? = userViewModel.getUserByEmail(email)
-
-            if (userData != null) {
-                targetKalori = userData.jumlahTargetKalori.toString()
-            } else {
-                //
+        userViewModel.fetchUserByEmail(email)
+        userViewModel.user.observe(viewLifecycleOwner, Observer {
+            if (it!=null){
+                targetKalori = it.jumlahTargetKalori
             }
-        }
+        })
+
+
+        binding.tvKaloriTarget.setText(targetKalori).toString()
     }
+
+
 
 
 }
