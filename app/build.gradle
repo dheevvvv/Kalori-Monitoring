@@ -78,4 +78,11 @@ dependencies {
     implementation 'androidx.datastore:datastore-preferences-android:1.1.0-alpha07'
     implementation 'androidx.datastore:datastore-android:1.1.0-alpha07'
 
+    //ORM ROOM & Couroutine
+    implementation 'androidx.room:room-runtime:2.6.1'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    kapt 'androidx.room:room-compiler:2.6.1'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3'
+    implementation "androidx.room:room-ktx:2.6.1"
+
 }

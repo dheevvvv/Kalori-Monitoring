@@ -68,35 +68,11 @@
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
-            android:id="@+id/action_homeFragment_to_inputDataOutFragment"
-            app:destination="@id/inputDataOutFragment" />
-        <action
-            android:id="@+id/action_homeFragment_to_inputDataFragment"
-            app:destination="@id/inputDataFragment" />
-        <action
             android:id="@+id/action_homeFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
         <action
             android:id="@+id/action_homeFragment_to_riwayatFragment"
             app:destination="@id/riwayatFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/inputDataFragment"
-        android:name="com.dheevvvv.kalorimonitoring.view.InputDataFragment"
-        android:label="fragment_input_data_out"
-        tools:layout="@layout/fragment_input_data_out" >
-        <action
-            android:id="@+id/action_inputDataFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/inputDataOutFragment"
-        android:name="com.dheevvvv.kalorimonitoring.view.InputDataOutFragment"
-        android:label="fragment_input_data_out"
-        tools:layout="@layout/fragment_input_data_out" >
-        <action
-            android:id="@+id/action_inputDataOutFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
     </fragment>
     <fragment
         android:id="@+id/tabLayoutLoginRegisterFragment"
@@ -164,5 +140,26 @@
         <action
             android:id="@+id/action_riwayatFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_riwayatFragment_to_tambahMakananFragment"
+            app:destination="@id/tambahMakananFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/tambahMakananFragment"
+        android:name="com.dheevvvv.kalorimonitoring.view.TambahMakananFragment"
+        android:label="fragment_tambah_makanan"
+        tools:layout="@layout/fragment_tambah_makanan" >
+        <action
+            android:id="@+id/action_tambahMakananFragment_to_formTambahMakananFragment"
+            app:destination="@id/formTambahMakananFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/formTambahMakananFragment"
+        android:name="com.dheevvvv.kalorimonitoring.view.FormTambahMakananFragment"
+        android:label="fragment_form_tambah_makanan"
+        tools:layout="@layout/fragment_form_tambah_makanan" >
+        <action
+            android:id="@+id/action_formTambahMakananFragment_to_riwayatFragment"
+            app:destination="@id/riwayatFragment" />
     </fragment>
 </navigation>
