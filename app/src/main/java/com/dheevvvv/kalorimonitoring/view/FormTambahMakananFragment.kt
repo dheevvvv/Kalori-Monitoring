@@ -14,6 +14,7 @@ import androidx.navigation.fragment.findNavController
 import com.dheevvvv.kalorimonitoring.R
 import com.dheevvvv.kalorimonitoring.databinding.FragmentFormTambahMakananBinding
 import com.dheevvvv.kalorimonitoring.datastore_preferences.UserManager
+import com.dheevvvv.kalorimonitoring.helper.NotificationHelper
 import com.dheevvvv.kalorimonitoring.room_database.MakananDikonsumsiData
 import com.dheevvvv.kalorimonitoring.viewmodel.MakananDikonsumsiViewModel
 import kotlinx.coroutines.launch
@@ -74,6 +75,10 @@ class FormTambahMakananFragment : Fragment() {
 
         binding.btnTambahMakanan.setOnClickListener {
             saveAdd()
+            val notificationManager = NotificationHelper(requireContext())
+            notificationManager.showNotification("Makanan Berhasil Ditambahkan", "Kalori Asupan Mu Bertambah")
+
+
             Toast.makeText(context, "Data Makanan Berhasil Ditambahkan", Toast.LENGTH_SHORT).show()
             findNavController().navigate(R.id.action_formTambahMakananFragment_to_riwayatFragment)
         }
